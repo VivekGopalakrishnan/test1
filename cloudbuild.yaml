@@ -1,0 +1,11 @@
+steps:
+  - name: gcr.io/cloud-builders/gcloud
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        git clone https://github.com/[USERNAME]/[REPO_NAME].git /tmp/repo
+        psql -h [CLOUD_SQL_INSTANCE_CONNECTION_NAME] -U [POSTGRES_USERNAME] -d [DATABASE_NAME] -f /tmp/repo/[DDL_SCRIPT_FILE]
+
+options:
+  timeout: 180s
