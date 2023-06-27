@@ -5,7 +5,8 @@ steps:
       - -c
       - |
         apt-get update && apt-get install -y postgresql-client
-        psql "host=/cloudsql/poised-sunrise-390308:us-central1:test1 dbname=dbtest user=postgres password=admin" -f ddltest.sql
+        gcloud sql connect test1 --user=postgres --quiet
+        #psql "host=/cloudsql/poised-sunrise-390308:us-central1:test1 dbname=dbtest user=postgres password=admin" -f ddltest.sql
 
 timeout: 300s
 
