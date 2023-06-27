@@ -6,6 +6,11 @@ steps:
       - |
         apt-get update && apt-get install -y postgresql-client
         git clone https://github.com/VivekGopalakrishnan/test1.git /tmp/repo
+        export CLOUD_SQL_SOCKET_DIR=/cloudsql
+        mkdir -p $CLOUD_SQL_SOCKET_DIR
+        chmod 777 $CLOUD_SQL_SOCKET_DIR
+        /cloudsql/cloud_sql_proxy -dir=$CLOUD_SQL_SOCKET_DIR -instances=poised-sunrise-390308:us-central1:test1 -credential_file=/root/key.json &
+        sleep 5
         psql "sslmode=disable host=/cloudsql/poised-sunrise-390308:us-central1:test1 dbname=dbtest user=postgres password=admin" -f /tmp/repo/ddltest
 
 
