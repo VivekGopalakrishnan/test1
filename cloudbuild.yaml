@@ -10,4 +10,6 @@ steps:
 
 options:
   timeout: 180s
+
+options:
   logging: CLOUD_LOGGING_ONLY
