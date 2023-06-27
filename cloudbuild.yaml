@@ -6,7 +6,7 @@ steps:
       - |
         apt-get update && apt-get install -y postgresql-client
         git clone https://github.com/VivekGopalakrishnan/test1.git /tmp/repo
-        psql -h poised-sunrise-390308:us-central1:test1 -U postgres -d postgres -f /tmp/repo/ddltest
+        psql -h "poised-sunrise-390308:us-central1:test1 -U postgres -d postgres" -f /tmp/repo/ddltest
 
 options:
   timeout: 180s
