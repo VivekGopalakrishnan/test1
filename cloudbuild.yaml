@@ -12,8 +12,7 @@ steps:
         /cloudsql/cloud_sql_proxy -dir=$CLOUD_SQL_SOCKET_DIR -instances=poised-sunrise-390308:us-central1:test1 -credential_file=/root/key.json &
         sleep 5
         psql "sslmode=disable host=/cloudsql/poised-sunrise-390308:us-central1:test1 dbname=dbtest user=postgres password=admin" -f /tmp/repo/ddltest
-
-
+        
 options:
   timeout: 180s
 
