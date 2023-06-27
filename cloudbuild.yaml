@@ -4,8 +4,8 @@ steps:
     args:
       - -c
       - |
-        git clone https://github.com/[USERNAME]/[REPO_NAME].git /tmp/repo
-        psql -h [CLOUD_SQL_INSTANCE_CONNECTION_NAME] -U [POSTGRES_USERNAME] -d [DATABASE_NAME] -f /tmp/repo/[DDL_SCRIPT_FILE]
+        git clone https://github.com/VivekGopalakrishnan/test1.git /tmp/repo
+        psql -h poised-sunrise-390308:us-central1:test1 -U postgres -d postgres -f /tmp/repo/[DDL_SCRIPT_FILE]
 
 options:
   timeout: 180s
