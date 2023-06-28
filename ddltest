@@ -1,9 +1,11 @@
-CREATE TABLE cpv.bid_reqs_cmnt (
-    bid_req_oid bigint NOT NULL,
-    bid_req_cmnt_oid bigint NOT NULL,
-    cmnt character varying(255) NOT NULL,
+CREATE TABLE cpv.orgn_strc (
+    orgn_strc_oid bigint NOT NULL,
+    orgn_name character varying(50) NOT NULL,
+    orgn_desc character varying(255),
     crtd_user_id character varying(10) NOT NULL,
-    crtd_ts timestamp(6) without time zone DEFAULT CURRENT_TIMESTAMP,
-    last_updt_user_id character varying(10),
-    last_updt_ts timestamp(6) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    crtd_ts timestamp without time zone DEFAULT statement_timestamp() NOT NULL,
+    last_updt_user_id character varying(10) NOT NULL,
+    last_updt_ts timestamp without time zone DEFAULT statement_timestamp() NOT NULL,
+    orgn_strc_type_oid bigint,
+    orgn_strc_grp_id smallint DEFAULT 1 NOT NULL
 );
